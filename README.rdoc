@@ -1,0 +1,68 @@
+= Guard::Autorefresh
+
+Autorefresh guard allows to automatically reload your browser when 'view' files are modified.
+
+It is using {logankoester / autorefresh}[https://github.com/logankoester/autorefresh] to do its job.
+
+No need for a browser extension, it just works.
+
+I wrote it in 3 pomodori as I could not make {guard-livereload}[https://github.com/guard/guard-livereload] work on my machine and I did not want to bother installing an extension.
+
+== Install
+
+Please be sure to have {Guard}[http://github.com/guard/guard] installed before continue.
+
+Install the gem:
+
+    gem install guard-autorefresh
+
+Add it to your Gemfile (inside development group):
+
+    gem 'guard-autorefresh'
+
+Add guard definition to your Guardfile by running this command:
+
+    guard init autorefresh
+
+Add autorefresh socket setup to your layout files:
+
+    <head>
+        <%= AutoRefresh.channel('my_awesome_app') if Rails.env.development? %>
+    </head>
+
+Do not rename 'my_awesome_app', your app must be awesome and it is hardcoded inside the library.
+
+== Usage
+
+Please read {Guard usage doc}[http://github.com/guard/guard#readme]
+
+== Guardfile
+
+You can adapt your 'view' files like you want.
+Please read {Guard doc}[http://github.com/guard/guard#readme] for more info about Guardfile DSL.
+
+    guard 'autorefresh' do
+      watch(%r{app/.+\.(erb|haml)})
+      watch(%r{app/helpers/.+\.rb})
+      watch(%r{(public/|app/assets).+\.(css|js|html)})
+      watch(%r{(app/assets/.+\.css)\.scss}) { |m| m[1] }
+      watch(%r{(app/assets/.+\.js)\.coffee}) { |m| m[1] }
+      watch(%r{config/locales/.+\.yml})
+    end
+
+== Development
+
+- Source hosted at {GitHub}[http://github.com/21croissants/guard-autorefresh]
+- Report issues/Questions/Feature requests on {GitHub Issues}[http://github.com/21croissants/guard-autorefresh/issues]
+
+Pull requests are very welcome! Make sure your patches are well tested. Please create a topic branch for every separate change
+you make.
+
+== TODO
+
+- autorefresh has a dependency on watchr :(
+- travis CI ;)
+
+== Authors
+
+{Jean-Michel Garnier}[http://github.com/21croissants]

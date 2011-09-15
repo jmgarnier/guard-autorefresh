@@ -1,0 +1,13 @@
+guard 'autorefresh' do
+  watch(%r{app/.+\.(erb|haml)})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{(public/|app/assets).+\.(css|js|html)})
+  watch(%r{(app/assets/.+\.css)\.scss}) { |m| m[1] }
+  watch(%r{(app/assets/.+\.js)\.coffee}) { |m| m[1] }
+  watch(%r{config/locales/.+\.yml})
+end
+
+# Add autorefresh socket setup to your layout files:
+# <head>
+#     <%= AutoRefresh.channel('my_awesome_app') if Rails.env.development? %>
+# </head>
