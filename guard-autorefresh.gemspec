@@ -8,12 +8,11 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Jean-Michel Garnier']
   s.email       = ['jean-michel@21croissants.com']
-  s.homepage    = 'http://rubygems.org/gems/guard-autorefresh'
+  s.homepage    = 'https://github.com/21croissants/guard-autorefresh'
   s.summary     = 'Guard gem for autorefresh'
   s.description = "Guard::Autorefresh automatically reloads your browser when 'view' files are modified."
 
   s.required_rubygems_version = '>= 1.3.6'
-  #s.rubyforge_project         = "guard-autorefresh"
 
   s.add_dependency 'guard',        '>= 0.4.0'
   s.add_dependency 'autorefresh', '= 1.0.0'
