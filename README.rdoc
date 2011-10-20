@@ -1,3 +1,7 @@
+= WARNING
+
+This is alpha. On one hand, it has a dependency on "watchr", which is not used but is required by autorefresh :( On the other hand, it is slow and I suspect there is flaw in the way the pusher socket is used ...
+
 = Guard::Autorefresh
 
 Autorefresh guard allows to automatically reload your browser when 'view' files are modified.
